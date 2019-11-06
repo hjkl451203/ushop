@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/Chart.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div class="s-main container-fluid">
+        <div class="s-main-row row">
+            <div class="s-row-col col-left col-lg-2">
+                <div class="right-option">
+                    <input type="checkbox" onclick="fn_show()" name="a1" value="a1" id="a1">
+                    <label for="a1" class="bar" id="o_b1"></label>
+                    <label for="a1" class="bar" id="o_b2"></label>
+                    <label for="a1" class="bar"id="o_b3"></label>
+                </div>
+                <div class="left-logo">
+                    <img src="img/logo_black.PNG">
+                </div>
+                <div class="left-user">
+                    <p>JUstin</p>
+                </div>
+                <ul class="left-group-btn" id="g_list">
+                    <li class="group-li"><i class="fas fa-cubes"></i>全覽</li>
+                    <li class="group-li active"><i class="far fa-chart-bar"></i>客流分析</li>
+                    <a href="hotpoint.html"><li class="group-li"><i class="fas fa-map-marked-alt"></i>熱點分析</li></a>
+                    <li class="group-li"><i class="fas fa-bezier-curve"></i>路徑分析</li>
+                    <li><i class="fas fa-bezier-curve" style="opacity:0;"></i>儀錶板<i id="icn_dishboard" class="fas fa-plus-circle"></i></li>
+                </ul>
+            </div>
+            <div class="s-row-col col-right col-lg-10">
+                <div class="row right-row">
+                    <div class="row-title">
+                        <p class="h1">客流分析</p>
+                        <div class="title-btn">
+                            <a class="title-href"><i class="fas fa-cog"></i>設定</a>
+                            <a class="title-href"><i class="fas fa-sign-out-alt"></i>登出</a>
+                        </div>
+                    </div>
+                    <div class="row-content">
+                        <div class="content-title">
+                            <p class="h2">進店人數</p>
+                        </div>
+                        <div class="content-info">
+                            <div class="row info-option">
+                                <div class="col-lg-6 option-left">
+                                    <p>客流量</p>
+                                    <p class="left-date"><i class="fas fa-info-circle"></i> 全部區域 2019/11/04</p>
+                                </div>
+                                <div class="col-lg-6 option-right">
+                                    <div class="ri-left">
+                                        <p>比較</p>
+                                        <input type="radio" id="r1" name="rr" />
+                                        <label for="r1"><span></span>跨店比較<i class="fas fa-cog"></i></label>
+                                        <input type="radio" id="r2" name="rr" />
+                                        <label for="r2"><span></span>跨時比較<i class="fas fa-cog"></i></label>
+                                        <div class="ri-leftsel">
+                                            <p>資料比較</p>
+                                            <select>
+                                                <option>無</option>
+                                                <option>wifi客流量</option>
+                                                <option>wifi店外客流</option>
+                                                <option>提袋率</option>
+                                                <option>交易筆數</option>
+                                                <option>銷售額</option>
+                                                <option>人均消費</option>
+                                                <option>進店率</option>
+                                                <option>熟客率</option>
+                                                <option>平均停留時間</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row info-option">
+                                <canvas id="canvas" min-height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="content-group">
+                            <select>
+                                <option>日</option>
+                                <option selected>周</option>
+                                <option>月</option>
+                                <option>年</option>
+                            </select>
+                            <p>時間單位</p>
+                            <select>
+                                <option>天</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-content no-bgcolor">
+                        <p class="h3">報告</p>
+                        <table>
+                            <tr class="t-head">
+                                <th class="t-date">日期</th>
+                                <th class="t-person">客流量</th>
+                            </tr>
+                            <tr>
+                                <td>星期一</td>
+                                <td>630</td>
+                            </tr>
+                            <tr>
+                                <td>星期二</td>
+                                <td>630</td>
+                            </tr>
+                            <tr>
+                                <td>星期三</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>星期四</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>星期五</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>星期六</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>星期日</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function fn_show() {
+            $("#g_list").toggleClass("g-active");
+        }
+
+
+        var lineChartData = {
+            labels: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"], //顯示區間名稱
+            datasets: [{
+                label: '客流量', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                lineTension: 0.4,
+                data: [250, 450, 15, 364, 543, 433, 222], // 資料
+                fill: false, // 是否填滿色彩
+            }]
+        };
+
+        function drawLineCanvas(ctx, data) {
+            window.myLine = new Chart(ctx, {  //先建立一個 chart
+                type: 'line', // 型態
+                data: data,
+                scaleFontColor: 'red',
+                options: {
+                    responsive: true,
+
+                    legend: { //是否要顯示圖示
+                        display: false,
+
+                    },
+                    tooltips: { //是否要顯示 tooltip
+                        enabled: true
+                    },
+                    scales: {  //是否要顯示 x、y 軸
+                        xAxes: [{
+
+                            gridLines: {
+                                display: true,
+                                color: "#374554",
+                            },
+                            ticks: {
+                                fontColor: "#FFF", // this here
+                            },
+
+                        }],
+                        yAxes: [{
+
+                            scaleLabel: {
+                                display: true,
+                                labelString: '客流量',
+                                fontSize: 14,
+                                fontFamily: 'Microsoft JhengHei',
+                                fontColor: "#FFF",
+                            },
+                            gridLines: {
+                                display: true,
+                                color: "#374554",
+                            },
+                            ticks: {
+                                fontColor: "#FFF", // this here
+                                max: 800,
+                                min: 0,
+                                stepSize: 100,
+                            },
+                        }]
+                    },
+                }
+            });
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx, lineChartData);
+        };
+    </script>
+</body>
+</html>
