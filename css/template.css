@@ -70,7 +70,8 @@ body, html {
     padding:0;
 }
 .col-left .left-group-btn a{
-text-decoration:none;    
+text-decoration:none;
+
 }
 
     .col-left .left-group-btn li {
@@ -343,7 +344,7 @@ input[type="radio"] {
     border-top: solid 1px #304053;
 }
     .row-content select {
-        min-width: 90px;
+        width: 10%;
         border-radius: 5px;
         background: #32B0C7;
         border:0;
